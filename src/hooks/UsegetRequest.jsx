@@ -14,7 +14,7 @@ export default function useGetRequest(url) {
                 }
                 const userData = await response.json();
                 setData(userData);
-            } catch (err) {                 
+            } catch (err) {
                 setError(err.message);
             } finally {
                 setLoading(false);
