@@ -12,15 +12,14 @@ export default function useGetRequest(url) {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                const jsonData = await response.json();
-                setData(jsonData);
-            } catch (err) {
+                const userData = await response.json();
+                setData(userData);
+            } catch (err) {                 
                 setError(err.message);
             } finally {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, [url]);
 
