@@ -5,8 +5,8 @@ import usePutRequest from './hooks/usePutRequest';
 import useDeleteRequest from "./hooks/UseDeleteRequest"
 import usePatchRequest from "./hooks/UsePatchRequest"
 import Loading from './components/Loading';
-const App = () => {
 
+const App = () => {
   const { data: posts, loading: loadingGet, error: errorGet } = useGetRequest('https://jsonplaceholder.typicode.com/posts');
   const { postRequest, data: newPost, loading: loadingPost, error: errorPost } = usePostRequest();
   const { putRequest, data: updatedPost, loading: loadingPut, error: errorPut } = usePutRequest();
@@ -29,7 +29,7 @@ const App = () => {
           <div className='w-full flex gap-4 flex-wrap my-8 items-center justify-center'>
             {posts && posts.slice(0, 12).map(post => (
               <div key={post.id} className=' border border-black rounded-xl gap-4 p-4 flex flex-col w-96'>
-                <div className='p-2 md:space-y-4 space-y-2 '>
+                <div className='p-2 space-y-2 '>
                   <div> <span className='font-bold text-xl'>Titlt : </span>{post.title}</div>
                   <div><span className='font-bold text-xl'>Body : </span> {post.body}</div>
                 </div>
