@@ -5,17 +5,12 @@ import usePutRequest from './hooks/UsePutRequest';
 import useDeleteRequest from "./hooks/UseDeleteRequest"
 import usePatchRequest from "./hooks/UsePatchRequest"
 import Loading from './components/Loading';
-import { Formik } from 'formik';
-import Input from './components/Input';
-import { validation } from './Validation';
 
 const App = () => {
-  const [title, settitle] = useState("")
-  const [body, setbody] = useState("")
-
   const objData = {
-    title: title,
-    body: body,
+    userId: 1,
+    title: "create new post",
+    body: "this is body",
   }
 
   const { data: posts, loading: loadingGet, error: errorGet } = useGetRequest('https://jsonplaceholder.typicode.com/posts');
@@ -28,7 +23,6 @@ const App = () => {
   const handleUpdate = id => putRequest(`https://jsonplaceholder.typicode.com/posts/${id}`, { id, title: 'Updated', body: 'Updated content', userId: 1 })
   const handlePatch = id => patchRequest(`https://jsonplaceholder.typicode.com/posts/${id}`, { title: 'Patched Title' });
   const handleDelete = id => deleteRequest(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  // console.log(newPost, updatedPost, patchedPost, deletedPost);
 
   return (
     <>
@@ -55,11 +49,12 @@ const App = () => {
         </div>
         <div className='flex items-center justify-center flex-col text-center'>
           <h2 className='text-center text-2xl font-bold py-6'>New Post</h2>
+          <button  className='bg-green-500 py-2 px-4 w-32 rounded-lg cursor-pointer text-white font-semibold' onClick={handleAdd}>Add Post</button>
           {loadingPost && <Loading />}
           {errorPost && <p className='text-red-500 font-semibold text-center'>{errorPost}</p>}
 
           <div>
-            <Formik
+            {/* <Formik
               initialValues={{ title: null, body: null }}
               validationSchema={validation}
               onSubmit={(values) => {
@@ -88,7 +83,7 @@ const App = () => {
                 </div>
                 </form>
               )}
-            </Formik>
+            </Formik> */}
           </div>
 
           {newPost && <p className='pt-10'>Created New post: {JSON.stringify(newPost)}</p>}
