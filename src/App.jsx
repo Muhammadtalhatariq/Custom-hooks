@@ -43,28 +43,28 @@ const App = () => {
           </div>
         </div>
 
-        <section className='flex items-center justify-center flex-col text-center'>
+        <div className='flex items-center justify-center flex-col text-center'>
           <h2 className='text-center text-2xl font-bold py-6'>New Post</h2>
           <button className='bg-green-500 py-2 px-4 rounded-lg cursor-pointer text-white font-semibold' onClick={handleAdd}>Add Post</button>
           {loadingPost && <Loading/>}
           {errorPost && <p className='text-red-500 font-semibold text-center'>{errorPost}</p>}
           {newPost && <p className='pt-10'>Created New post: {JSON.stringify(newPost)}</p>}
-        </section>
+        </div>
 
-        <section className='my-10 text-center'>
+        <div className='my-10 text-center'>
           <h2 className='text-center font-medium text-2xl'>Results of Operations</h2>
           {loadingPut && <Loading/>}
           {errorPut && <p className='text-red-500 font-semibold text-center'>{errorPut}</p>}
-          {updatedPost && <p>Updated Post: {JSON.stringify(updatedPost)}</p>}
+          {updatedPost && <p className='pt-10'>Updated Post: {JSON.stringify(updatedPost)}</p>}
 
           {loadingPatch && <Loading/>}
           {errorPatch && <p className='text-red-500 font-semibold text-center'>{errorPatch}</p>}
-          {patchedPost && <p>Patched Post: {JSON.stringify(patchedPost)}</p>}
+          {patchedPost && <p className='pt-10'>Patched Post: {JSON.stringify(patchedPost)}</p>}
 
           {loadingDelete && <Loading/>}
           {errorDelete && <p className='text-red-500 font-semibold text-center'>{errorDelete}</p>}
-          {deletedPost && <p>Deleted Post: {JSON.stringify(deletedPost)}</p>}
-        </section>
+          {deletedPost && <p className='pt-10'>Deleted Post: {JSON.stringify(deletedPost)}</p>}
+        </div>
       </div>
     </>
   )
