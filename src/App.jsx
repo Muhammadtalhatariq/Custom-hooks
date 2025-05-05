@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import useGetRequest from './hooks/useGetRequest';
-import usePostRequest from './hooks/usePostRequest';
-import usePutRequest from './hooks/usePutRequest';
+import useGetRequest from './hooks/UsegetRequest';
+import usePostRequest from './hooks/UsepostRequest';
+import usePutRequest from './hooks/UsePutRequest';
 import useDeleteRequest from "./hooks/UseDeleteRequest"
 import usePatchRequest from "./hooks/UsePatchRequest"
 import Loading from './components/Loading';
