@@ -52,40 +52,6 @@ const App = () => {
           <button  className='bg-green-500 py-2 px-4 w-32 rounded-lg cursor-pointer text-white font-semibold' onClick={handleAdd}>Add Post</button>
           {loadingPost && <Loading />}
           {errorPost && <p className='text-red-500 font-semibold text-center'>{errorPost}</p>}
-
-          <div>
-            {/* <Formik
-              initialValues={{ title: null, body: null }}
-              validationSchema={validation}
-              onSubmit={(values) => {
-                const { title, body } = values
-                console.log(title, body);
-                setbody(body)
-                settitle(title)
-              }}
-            >
-              {props => (
-                <form className='flex flex-col space-y-2' onSubmit={props.handleSubmit}>
-                  <Input
-                    type="text"
-                    label="Title :"
-                    name="title"
-                    className='bg-transparent border border-black md:w-80 w-68 outline-none px-2'
-                  />
-                  <Input
-                    type="text"
-                    label="Body :"
-                    name="body"
-                    className='bg-transparent border border-black md:w-80 w-68 outline-none px-2'
-                  />
-                <div className='flex justify-end'>
-                <button type='submit' className='bg-green-500 py-2 px-4 w-32 rounded-lg cursor-pointer text-white font-semibold' onClick={handleAdd}>Add Post</button>
-                </div>
-                </form>
-              )}
-            </Formik> */}
-          </div>
-
           {newPost && <p className='pt-10'>Created New post: {JSON.stringify(newPost)}</p>}
         </div>
         <div className='my-10 text-center'>
