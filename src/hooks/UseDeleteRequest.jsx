@@ -17,7 +17,7 @@ const useDeleteRequest = () => {
   });
   return {
     execute: (url) => mutation.mutate({ url }),
-    isLoading: mutation.isLoading,
+    isLoading: mutation.isPending,
     data: mutation.data,
     error: mutation.error,
   };

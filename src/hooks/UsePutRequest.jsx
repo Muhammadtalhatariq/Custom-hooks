@@ -19,7 +19,7 @@ const usePutRequest = () => {
   });
   return {
     execute: (url, body) => mutation.mutate({ url, body }),
-    isLoading: mutation.isLoading,
+    isLoading: mutation.isPending,
     data: mutation.data,
     error: mutation.error,
   };

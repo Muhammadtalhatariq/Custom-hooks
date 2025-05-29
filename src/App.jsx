@@ -1,12 +1,9 @@
 import React from "react";
 import useGetRequest from "./hooks/UsegetRequest";
-import usePostRequest from "./hooks/UsepostRequest";
 import usePutRequest from "./hooks/UsePutRequest";
 import useDeleteRequest from "./hooks/UseDeleteRequest";
 import usePatchRequest from "./hooks/UsePatchRequest";
 import Loading from "./components/Loading";
-// import { Formik, Form, Field, ErrorMessage } from "formik";
-// import { validate } from "./Validation";
 import { Link } from "react-router-dom";
 
 const App = () => {
@@ -17,28 +14,19 @@ const App = () => {
     error: errorGet,
   } = useGetRequest("https://jsonplaceholder.typicode.com/posts");
 
-  // post method
-  const {
-    data: newPost,
-    loading: loadingPost,
-    error: errorPost,
-  } = usePostRequest();
-
   // put method
-
   const {
     execute: putRequest,
     data: updatedPost,
-    loading: loadingPut,
+    isLoading: loadingPut,
     error: errorPut,
   } = usePutRequest();
 
   // patch method
-
   const {
     execute: patchRequest,
     data: patchedPost,
-    loading: loadingPatch,
+    isLoading: loadingPatch,
     error: errorPatch,
   } = usePatchRequest();
 
@@ -46,7 +34,7 @@ const App = () => {
   const {
     execute: deleteRequest,
     data: deletedPost,
-    loading: loadingDelete,
+    isLoading: loadingDelete,
     error: errorDelete,
   } = useDeleteRequest();
 
@@ -67,7 +55,7 @@ const App = () => {
   return (
     <>
       <div className="p-4 bg-gray-100 w-full">
-        <div className="get-method pt-4 gap-8">
+        <div className="get-method ">
           <h2 className="text-center text-2xl font-bold">Posts Manager</h2>
           <div className="flex justify-end ">
             <Link
@@ -81,7 +69,7 @@ const App = () => {
           {errorGet && (
             <p className="text-red-500 font-semibold text-center">{errorGet}</p>
           )}
-          <div className="w-full flex gap-4 flex-wrap my-8 items-center justify-center">
+          <div className="w-full flex gap-4 flex-wrap my-4 items-center justify-center">
             {posts &&
               posts.slice(0, 12).map((post) => (
                 <div
@@ -128,19 +116,6 @@ const App = () => {
           <h2 className="text-center font-medium text-2xl">
             Results of Operations
           </h2>
-          <div className="post-method flex items-center justify-center flex-col text-center">
-            {loadingPost && <Loading />}
-            {errorPost && (
-              <p className="text-red-500 font-semibold text-center">
-                {errorPost}
-              </p>
-            )}
-            {newPost && (
-              <p className="pt-10">
-                Created New post: {JSON.stringify(newPost)}
-              </p>
-            )}
-          </div>
           {loadingPut && <Loading />}
           {errorPut && (
             <p className="text-red-500 font-semibold text-center">{errorPut}</p>
