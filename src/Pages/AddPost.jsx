@@ -7,7 +7,6 @@ const AddPost = () => {
   const {
     execute: postRequest,
     data: newPost,
-    isLoading: loadingPost,
     error: errorPost,
   } = usePostRequest();
   return (
@@ -71,8 +70,6 @@ const AddPost = () => {
             </Form>
           )}
         </Formik>
-
-        {loadingPost && <Loading />}
         {errorPost && (
           <p className="text-red-500 font-semibold text-center">{errorPost}</p>
         )}

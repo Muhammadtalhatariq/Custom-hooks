@@ -19,7 +19,6 @@ const usePostRequest = () => {
   });
   return {
     execute: (body) => mutation.mutate(body),
-    isLoading: mutation.isPending,
     data: mutation.data,
     error: mutation.error,
   };
