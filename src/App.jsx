@@ -60,7 +60,7 @@ const App = () => {
           <div className="flex justify-end ">
             <Link
               to="/addpost"
-              className="p-3 bg-green-500 roundrd-lg text-white font-semibold md:m-7 cursor-pointer"
+              className="p-3 bg-green-400 roundrd-lg text-white font-semibold md:m-7 cursor-pointer"
             >
               Add Post
             </Link>
